@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import TodoList from './views/TodoList.vue';
 
 Vue.use(Router);
 
@@ -12,14 +13,26 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    },
+      children: [
+        {
+          path: '',
+          name: 'todolist-all',
+          component: TodoList,
+          props: { filter: null }
+        },
+        {
+          path: 'active/',
+          name: 'todolist-active',
+          component: TodoList,
+          props: { filter: 'active' }
+        },
+        {
+          path: 'completed/',
+          name: 'todolist-completed',
+          component: TodoList,
+          props: { filter: 'completed' }
+        }
+      ]
+    }
   ],
 });

@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Home</router-link>
     </div>
     <router-view/>
   </div>
@@ -25,5 +24,11 @@
       color: #42b983;
     }
   }
+}
+body {
+  background: #f5f5f5;
+  min-width: 230px;
+  max-width: 550px;
+  margin: 0 auto;
 }
 </style>
