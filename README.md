@@ -1,5 +1,7 @@
 # todoapp-vue
 
+Just another TodoApp I created with vue+typescript.
+
 ## Project setup
 ```
 yarn install
